@@ -1,0 +1,24 @@
+[
+    {
+      "id": 1,
+      "date": "18 March, 2022",
+      "time": "10:30am To 12pm",
+      "location": "Kathmandu",
+      "title": "Meet with Queensford College Representatives"
+    },
+    {
+      "id": 2,
+      "date": "1 March, 2022",
+      "time": "10:30am To 2:30pm",
+      "location": "Kathmandu",
+      "title": "Free IELTS mock test"
+    },
+    {
+      "id": 3,
+      "date": "20 May, 2022",
+      "time": "10:30am To 2:30pm",
+      "location": "Brisbane",
+      "title": "Free Counselling Session"
+    }
+  ]
+  

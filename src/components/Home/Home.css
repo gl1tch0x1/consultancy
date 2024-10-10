@@ -1,0 +1,68 @@
+/* Add the effect under Australia */
+.under-australia {
+  position: relative;
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.under-australia::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 5px;
+  background-color: #f97316; 
+  bottom: -10px; 
+}
+
+/* Orange background effect behind the girl */
+.orange-bg-effect {
+  position: absolute;
+  z-index: -1;
+  top: 5rem;    
+  left: 5rem;   
+  width: 350px;  /* Increased width */
+  height: 350px; /* Increased height */
+  background: #FFA500;  /* Orange background */
+  border-radius: 50%;
+  filter: blur(80px);
+}
+
+/* Shaking animations */
+@keyframes shake-left-right {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-10px); }
+  50% { transform: translateX(10px); }
+  75% { transform: translateX(-10px); }
+  100% { transform: translateX(0); }
+}
+
+@keyframes shake-up-down {
+  0% { transform: translateY(0); }
+  25% { transform: translateY(-10px); }
+  50% { transform: translateY(10px); }
+  75% { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
+}
+
+.animate-shake-left-right {
+  animation: shake-left-right 8s infinite;
+}
+
+.animate-shake-up-down {
+  animation: shake-up-down 8s infinite;
+}
+
+
+.underline-img {
+  position: relative;
+  display: inline-block;
+}
+
+.underline-img img {
+  position: absolute;
+  bottom: -5px; 
+  left: 0;
+  width: 100%; 
+  height: auto;
+  z-index: -1; 
+}
