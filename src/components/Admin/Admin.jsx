@@ -1,12 +1,41 @@
 import React, { useEffect, useState } from "react";
 
+// Reusable Input Component
+const Input = ({ label, type, name, value, onChange, placeholder, min }) => (
+  <div>
+    <label className="block mb-1 text-lg md:text-xl font-medium">{label}:</label>
+    <input
+      type={type}
+      name={name}
+      placeholder={placeholder}
+      value={value}
+      onChange={onChange}
+      min={min}
+      required
+      className="p-3 md:p-4 border rounded w-full text-base md:text-lg transition-shadow focus:shadow-md focus:outline-none"
+    />
+  </div>
+);
+
+// Reusable Button Component
+const Button = ({ onClick, label, className }) => (
+  <button
+    onClick={onClick}
+    className={`${className} p-3 md:p-4 rounded text-base md:text-lg transition-colors duration-200 hover:opacity-90`}
+  >
+    {label}
+  </button>
+);
+
 const Admin = () => {
   const [events, setEvents] = useState([]);
-  const [title, setTitle] = useState("");
-  const [date, setDate] = useState("");
-  const [time, setTime] = useState("");
-  const [toTime, setToTime] = useState(""); // New state for "To Time"
-  const [location, setLocation] = useState("");
+  const [formData, setFormData] = useState({
+    title: "",
+    date: "",
+    time: "",
+    toTime: "",
+    location: "",
+  });
   const [editIndex, setEditIndex] = useState(null);
 
   // Load events from local storage
@@ -27,16 +56,27 @@ const Admin = () => {
     return new Date(dateString).toLocaleDateString("en-US", options);
   };
 
+  // Handle form changes
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  // Get today's date in the format YYYY-MM-DD
+  const getTodayDate = () => {
+    const today = new Date();
+    return today.toISOString().split("T")[0];
+  };
+
   // Add or edit event
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Simple date validation
-    if (!Date.parse(date)) {
-      alert("Please enter a valid date (e.g., YYYY-MM-DD).");
+    if (new Date(formData.date) < new Date(getTodayDate())) {
+      alert("Please choose today’s date or a future date.");
       return;
     }
 
-    const newEvent = { title, date, time, toTime, location }; // Include "toTime"
+    const newEvent = { ...formData };
 
     if (editIndex !== null) {
       const updatedEvents = events.map((event, index) =>
@@ -47,23 +87,14 @@ const Admin = () => {
       saveEvents([...events, newEvent]);
     }
 
-    // Clear input fields
-    setTitle("");
-    setDate("");
-    setTime("");
-    setToTime(""); // Clear "To Time"
-    setLocation("");
+    // Reset form
+    setFormData({ title: "", date: "", time: "", toTime: "", location: "" });
     setEditIndex(null);
   };
 
   // Edit event
   const handleEdit = (index) => {
-    const eventToEdit = events[index];
-    setTitle(eventToEdit.title);
-    setDate(eventToEdit.date);
-    setTime(eventToEdit.time);
-    setToTime(eventToEdit.toTime); // Set "To Time" for editing
-    setLocation(eventToEdit.location);
+    setFormData(events[index]);
     setEditIndex(index);
   };
 
@@ -74,90 +105,82 @@ const Admin = () => {
   };
 
   return (
-    <div className="admin-section p-6 md:p-10 lg:p-12">
-      <h1 className="text-3xl md:text-4xl font-bold mb-4">Admin Panel</h1>
-      <form onSubmit={handleSubmit} className="mb-6 space-y-4">
-        <div>
-          <label className="block mb-1 text-xl md:text-2xl">Event Title:</label>
-          <input
-            type="text"
-            placeholder="Event Title"
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
-            required
-            className="p-3 md:p-4 border rounded w-full text-lg md:text-xl" // Increased padding and text size
-          />
-        </div>
-        <div>
-          <label className="block mb-1 text-xl md:text-2xl">Date (YYYY-MM-DD):</label>
-          <input
-            type="date"
-            value={date}
-            onChange={(e) => setDate(e.target.value)}
-            required
-            className="p-3 md:p-4 border rounded w-full text-lg md:text-xl" // Increased padding and text size
-          />
-        </div>
-        <div>
-          <label className="block mb-1 text-xl md:text-2xl">Time:</label>
-          <input
+    <div className="admin-section p-8 md:p-12 lg:p-16 bg-gray-50 min-h-screen">
+      <h1 className="text-4xl md:text-5xl font-bold mb-6 text-gray-800">Admin Panel</h1>
+      <form onSubmit={handleSubmit} className="mb-8 space-y-6 bg-white p-6 rounded-lg shadow-md">
+        <Input
+          label="Event Title"
+          type="text"
+          name="title"
+          placeholder="Event Title"
+          value={formData.title}
+          onChange={handleInputChange}
+        />
+        <Input
+          label="Date (YYYY-MM-DD)"
+          type="date"
+          name="date"
+          value={formData.date}
+          onChange={handleInputChange}
+          min={getTodayDate()} // Restrict to today or future dates
+        />
+        <div className="md:flex md:space-x-4">
+          <Input
+            label="Time"
             type="time"
-            value={time}
-            onChange={(e) => setTime(e.target.value)}
-            required
-            className="p-3 md:p-4 border rounded w-full text-lg md:text-xl" // Increased padding and text size
+            name="time"
+            value={formData.time}
+            onChange={handleInputChange}
           />
-        </div>
-        <div>
-          <label className="block mb-1 text-xl md:text-2xl">To Time:</label>
-          <input
+          <Input
+            label="To Time"
             type="time"
-            value={toTime}
-            onChange={(e) => setToTime(e.target.value)}
-            required
-            className="p-3 md:p-4 border rounded w-full text-lg md:text-xl" // Increased padding and text size
+            name="toTime"
+            value={formData.toTime}
+            onChange={handleInputChange}
           />
         </div>
-        <div>
-          <label className="block mb-1 text-xl md:text-2xl">Location:</label>
-          <input
-            type="text"
-            placeholder="Location"
-            value={location}
-            onChange={(e) => setLocation(e.target.value)}
-            required
-            className="p-3 md:p-4 border rounded w-full text-lg md:text-xl" // Increased padding and text size
-          />
-        </div>
-        <button type="submit" className="bg-blue-500 text-white p-3 md:p-4 rounded w-full md:w-auto text-lg md:text-xl">
-          {editIndex !== null ? "Update Event" : "Add Event"}
-        </button>
+        <Input
+          label="Location"
+          type="text"
+          name="location"
+          placeholder="Location"
+          value={formData.location}
+          onChange={handleInputChange}
+        />
+        <Button
+          label={editIndex !== null ? "Update Event" : "Add Event"}
+          className="bg-blue-600 text-white w-full md:w-auto"
+          type="submit"
+        />
       </form>
 
-      <h2 className="text-2xl md:text-3xl font-semibold">Event List</h2>
-      <ul className="space-y-2">
-        {events.map((event, index) => (
-          <li key={index} className="flex flex-col md:flex-row justify-between items-center">
-            <div className="flex-1 mb-2 md:mb-0">
-              <strong className="text-lg md:text-xl">{event.title}</strong> | {formatDate(event.date)} | {event.time} - {event.toTime} | {event.location}
-            </div>
-            <div className="flex space-x-2">
-              <button
-                onClick={() => handleEdit(index)}
-                className="bg-yellow-500 text-white p-1 rounded"
-              >
-                Edit
-              </button>
-              <button
-                onClick={() => handleDelete(index)}
-                className="bg-red-500 text-white p-1 rounded"
-              >
-                Delete
-              </button>
-            </div>
-          </li>
-        ))}
-      </ul>
+      <h2 className="text-3xl md:text-4xl font-semibold mb-4 text-gray-700">Event List</h2>
+      {events.length ? (
+        <ul className="space-y-6">
+          {events.map((event, index) => (
+            <li key={index} className="flex flex-col md:flex-row justify-between items-center bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+              <div className="flex-1 mb-2 md:mb-0 text-gray-700">
+                <strong className="text-lg md:text-xl font-semibold">{event.title}</strong> | {formatDate(event.date)} | {event.time} - {event.toTime} | {event.location}
+              </div>
+              <div className="flex space-x-2">
+                <Button
+                  label="Edit"
+                  onClick={() => handleEdit(index)}
+                  className="bg-yellow-500 text-white"
+                />
+                <Button
+                  label="Delete"
+                  onClick={() => handleDelete(index)}
+                  className="bg-red-500 text-white"
+                />
+              </div>
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <p className="text-gray-500 text-lg mt-6">No events available. Please add one!</p>
+      )}
     </div>
   );
 };
