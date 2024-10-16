@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { HashLink } from 'react-router-hash-link';
-import Logo from "../../assets/logo.png";
+import Logo from "../../assets/logo-white.png";
 
 const Footer = () => {
   const navigate = useNavigate(); 
