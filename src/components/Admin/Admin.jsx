@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
 
 const Admin = () => {
   const [events, setEvents] = useState([]);
@@ -10,6 +11,8 @@ const Admin = () => {
   const [editIndex, setEditIndex] = useState(null);
   const [notification, setNotification] = useState(null); // Notification state
   const [notificationType, setNotificationType] = useState(""); // Success, Edit, Warning
+
+  const navigate = useNavigate(); // Initialize useNavigate
 
   // Load events from local storage
   useEffect(() => {
@@ -100,6 +103,12 @@ const Admin = () => {
     notifyAdmin("Event deleted successfully!", "warning");
   };
 
+  // Logout function
+  const handleLogout = () => {
+    localStorage.removeItem("admin_logged_in"); // Clear login status
+    navigate("/adminLogin"); // Redirect to login page
+  };
+
   // Notification colors
   const getNotificationColor = () => {
     switch (notificationType) {
@@ -117,6 +126,14 @@ const Admin = () => {
   return (
     <div className="admin-section p-6 md:p-10 lg:p-12 bg-gray-50 min-h-screen">
       <h1 className="text-4xl font-extrabold mb-6 text-center text-indigo-700">Admin Panel</h1>
+
+      {/* Logout Button */}
+      <button
+        onClick={handleLogout}
+        className="mb-6 bg-red-500 text-white py-2 px-4 rounded-lg hover:bg-red-600 transition duration-200"
+      >
+        Logout
+      </button>
 
       {/* Notification */}
       {notification && (
