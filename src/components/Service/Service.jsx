@@ -123,7 +123,7 @@ const Service = () => {
   ];
 
   return (
-    <div ref={sectionRef} className="bg-white py-16 px-6 lg:px-24">
+    <div ref={sectionRef} className="bg-white py-16 px-6 lg:px-24 bg-gradient-to-r from-blue-100 via-yellow-50 to-white">
       <div className="container mx-auto">
         {/* Heading */}
         <div className="text-center mb-16 relative">

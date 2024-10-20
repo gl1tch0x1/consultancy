@@ -17,7 +17,7 @@ const Home = () => {
   };
 
   return (
-    <div className="bg-white relative overflow-hidden py-8 scroll-smooth -mt-8">
+    <div className="bg-white relative overflow-hidden py-8 scroll-smooth -mt-8  bg-gradient-to-r from-blue-100 via-yellow-50 to-white">
       {/* Gradient Blob Background Effect */}
       <div className="absolute -top-20 -right-40 w-[300px] h-[300px] md:w-[400px] md:h-[400px] lg:w-[500px] lg:h-[500px] bg-gradient-to-r from-red-500 to-blue-500 rounded-full filter blur-3xl opacity-70 animate-blob"></div>
 
