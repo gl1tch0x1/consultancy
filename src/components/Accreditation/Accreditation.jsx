@@ -6,7 +6,7 @@ import NewZealand from '../../assets/NewZealand.png';
 
 const Accreditation = () => {
   return (
-    <div className="py-10 pb-48 bg-white">
+    <div className="py-10  pb-48 bg-gradient-to-r from-blue-100 via-yellow-50 to-white">
       <h2 className="text-center text-5xl font-bold text-grey-900 mb-10">Accreditation</h2>
       
       <div className="flex flex-wrap md:flex-nowrap justify-center items-center gap-8">

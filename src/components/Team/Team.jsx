@@ -40,7 +40,7 @@ const Team = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} className="bg-oxblue py-20 px-4 lg:px-20 relative">
+    <section ref={sectionRef} className="bg-oxblue py-20 px-4 lg:px-20 relative bg-gradient-to-r from-blue-100 via-yellow-50 to-white">
       <div>
         <h1 className="text-center text-l font-bold text-blue-600 mb-6">
           TEAM OF EXPERTS

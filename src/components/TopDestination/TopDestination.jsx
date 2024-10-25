@@ -26,7 +26,7 @@ const TopStudyDestination = () => {
   };
 
   return (
-    <div className="bg-gray-50 py-16 px-10 lg:px-20">
+    <div className="bg-gray-50 py-16 px-10 lg:px-20 bg-gradient-to-r from-blue-100 via-yellow-50 to-white">
       <div className="max-w-7xl mx-auto text-center mb-12">
         <div className='flex flex-col'>
           <h1 className="text-4xl lg:text-5xl font-extrabold text-gray-900">

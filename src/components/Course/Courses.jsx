@@ -63,8 +63,8 @@ const Courses = () => {
   }, [selectedCourse]);
 
   return (
-    <div>
-      <div id="courses" className="container mt-10">
+    <div className="bg-gradient-to-r from-blue-100 via-yellow-50 to-white">
+      <div id="courses" className="container lg:py-20 ">
         <div>
           {/* Heading Section */}
           <header className="flex items-center mb-10 ml-9">
@@ -101,7 +101,7 @@ const Courses = () => {
             ].map((course, index) => (
               <div
                 key={index}
-                className="course-card flex flex-col gap-8 bg-blue-50 shadow-lg transition-transform duration-300 ease-in-out group w-full lg:w-1/3 overflow-hidden"
+                className="course-card flex flex-col gap-8 shadow-lg transition-transform duration-300 ease-in-out group w-full lg:w-1/3 overflow-hidden"
                 onClick={() => setSelectedCourse(index)}
               >
                 <img
