@@ -1,87 +1,126 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import { FaPlus, FaMinus } from 'react-icons/fa'; // Ensure you have these icons imported
 
-const FAQAccordion = () => {
+const StudyAustralia = () => {
   const [activeIndex, setActiveIndex] = useState(null);
 
   const faqs = [
     {
-      question: "1/5th of the best universities in the world are in the UK.",
+      question: "What is the process for applying to study in Australia?",
       answer: (
         <div>
-          Some of the best universities in the world are in the UK. The University of Cambridge, The University of Oxford, and many other universities have been pioneering education for centuries. These universities often appear in the QS World University Rankings. One-fifth of the top 50 universities in the QS rankings are in the UK. Here are some of the best universities in the UK:
+          The application process typically involves:
           <ul className="list-disc list-inside mt-2">
-            <li>University of Oxford (Ranked 5th by QS)</li>
-            <li>University of Cambridge (Ranked 6th by QS)</li>
-            <li>Imperial College London (Ranked 8th by QS)</li>
-            <li>UCL (Ranked 10th by QS)</li>
-            <li>University of Edinburgh (Ranked 18th by QS)</li>
-          </ul>
-          Students can choose to study a wide range of courses in disciplines from fashion to physics. Professors teaching in UK universities are considered to be among the best globally, and the British education system is renowned for its quality.
-        </div>
-      ),
-    },
-    {
-      question: "Half a million International Students.",
-      answer: (
-        <div>
-          The UK has seen a huge surge in the international student population in recent years. There were around 485,645 international students in the UK in 2019. With half a million international students, you will not be alone in your journey. A vast number of international students from diverse cultures are studying in various parts of the country, allowing you to connect with like-minded individuals from different backgrounds.
-        </div>
-      ),
-    },
-    {
-      question: "Diverse Culture and rich history.",
-      answer: (
-        <div>
-          The United Kingdom is one of the oldest nations in the world. Students from all kinds of cultures contribute to a unique experience. The people are warm and welcoming, making you feel right at home. Many student communities provide a supportive environment for new students.
-        </div>
-      ),
-    },
-    {
-      question: "Attractive employment opportunities.",
-      answer: (
-        <div>
-          Career prospects are an important aspect of education. As an international student from Nepal, you may need to work to support your studies. The UK has a minimum wage policy, ensuring you earn at least £118.00 (excluding tax) per week to help fund your studies and living costs. The UK government allows international students to work for up to 20 hours a week.
-        </div>
-      ),
-    },
-    {
-      question: "Graduate employability score of Universities in the UK:",
-      answer: (
-        <div>
-          The employability scores for some top universities are as follows:
-          <ul className="list-disc list-inside mt-2">
-            <li>University of Cambridge: 67.7</li>
-            <li>University of Oxford: 66.7</li>
-            <li>Imperial College of London: 64.6</li>
-            <li>University College of London: 65.6</li>
-            <li>University of Manchester: 65.3</li>
-            <li>University of Bristol: 64.8</li>
+            <li>Choosing the right course and university.</li>
+            <li>Completing the application form.</li>
+            <li>Providing academic transcripts and documents.</li>
+            <li>Receiving an offer letter.</li>
+            <li>Obtaining a Confirmation of Enrollment (CoE).</li>
           </ul>
         </div>
       ),
     },
     {
-      question: "The UK is the cheapest among the Top 3 big student destinations.",
+      question: "What is the cost of studying in Australia?",
       answer: (
         <div>
-          Among Australia, the USA, and the UK, the UK is the most affordable in terms of tuition fees. The average tuition fee is £10,000, which is £2,000 less than that of the US and £3,000 less than Australia. Additionally, the financial documentation required for a UK student visa is less extensive.
+          The average cost of studying in Australia can range from:
+          <ul className="list-disc list-inside mt-2">
+            <li>AUD $20,000 to AUD $45,000 per year for undergraduate programs.</li>
+            <li>AUD $22,000 to AUD $50,000 per year for postgraduate programs.</li>
+            <li>AUD $18,000 to AUD $42,000 per year for doctoral degrees.</li>
+          </ul>
         </div>
       ),
     },
     {
-      question: "Free health care for international students.",
+      question: "What is the process for applying to study at a university or college in Australia?",
       answer: (
         <div>
-          If you plan to study in the UK for more than 6 months, the National Health Service (NHS) provides healthcare for free. In case of health emergencies, you won't have to worry about finances. However, medicines are not free; NHS caps the maximum amount students pay for medicine at £8.60, regardless of the actual cost.
+          The application process involves:
+          <ul className="list-disc list-inside mt-2">
+            <li>Submitting an online application to the university.</li>
+            <li>Providing academic transcripts, IELTS scores, and references.</li>
+            <li>Receiving an offer letter, and then accepting the offer.</li>
+            <li>Applying for a student visa once your enrollment is confirmed.</li>
+          </ul>
         </div>
       ),
     },
     {
-      question: "Degrees are shorter in the UK.",
+      question: "Do I need to have health insurance while studying in Australia?",
       answer: (
         <div>
-          In Nepal, most undergraduate programs last 4 years or longer. In contrast, most undergraduate degrees in the UK are typically 3 years long, with master's degrees averaging 1 year. Two-year degrees are also popular. Shorter degrees can lead to savings on tuition and living expenses.
+          Yes, international students are required to have Overseas Student Health Cover (OSHC), which provides basic health insurance during your stay in Australia.
+        </div>
+      ),
+    },
+    {
+      question: "Can I work while studying in Australia?",
+      answer: (
+        <div>
+          Yes, international students can work up to 40 hours per fortnight during the semester and unlimited hours during vacation periods.
+        </div>
+      ),
+    },
+    {
+      question: "What are the academic requirements for studying in Australia?",
+      answer: (
+        <div>
+          Requirements vary by program, but generally include:
+          <ul className="list-disc list-inside mt-2">
+            <li>Completed secondary education for undergraduate programs.</li>
+            <li>A relevant undergraduate degree for postgraduate programs.</li>
+            <li>English language proficiency, typically an IELTS score of 6.0 or higher.</li>
+          </ul>
+        </div>
+      ),
+    },
+    {
+      question: "Are there scholarships available for international students in Australia?",
+      answer: (
+        <div>
+          Yes, there are numerous scholarships available, including:
+          <ul className="list-disc list-inside mt-2">
+            <li>Australia Awards Scholarships (Fully funded government scholarships).</li>
+            <li>Destination Australia Scholarships (For regional areas).</li>
+            <li>University-specific scholarships that vary by institution.</li>
+          </ul>
+        </div>
+      ),
+    },
+    {
+      question: "What is the process for obtaining a student visa extension?",
+      answer: (
+        <div>
+          To extend your student visa, you must:
+          <ul className="list-disc list-inside mt-2">
+            <li>Apply for the visa extension before your current visa expires.</li>
+            <li>Provide proof of ongoing enrollment and financial support.</li>
+            <li>Submit the visa extension application through the Department of Home Affairs website.</li>
+          </ul>
+        </div>
+      ),
+    },
+    {
+      question: "Why does a visa get rejected in Australia?",
+      answer: (
+        <div>
+          Visa rejections can occur due to:
+          <ul className="list-disc list-inside mt-2">
+            <li>Insufficient proof of funds.</li>
+            <li>Failure to meet English language requirements.</li>
+            <li>Incomplete or inaccurate documentation.</li>
+            <li>Failure to meet the Genuine Temporary Entrant (GTE) requirement.</li>
+          </ul>
+        </div>
+      ),
+    },
+    {
+      question: "Can Nepali students apply for permanent residency in Australia after graduating?",
+      answer: (
+        <div>
+          Yes, Nepali students can apply for permanent residency under the skilled migration program, provided they meet the necessary work experience and qualification criteria.
         </div>
       ),
     },
@@ -92,36 +131,123 @@ const FAQAccordion = () => {
   };
 
   return (
-    <div className="mt-20">
-      <h1 className="text-2xl lg:text-4xl font-serif tracking-wide mb-6">
-        Why should you study in the UK?
-      </h1>
-      <p className="text-lg lg:text-xl text-gray-700 leading-relaxed mb-6">
-        Here are some reasons why you should study in the United Kingdom:
-      </p>
+    <div className="px-4 py-8 md:px-8 lg:px-24 bg-white">
+      {/* Title Section */}
+      <div className="text-center mb-10">
+        <h1 className="text-2xl md:text-4xl font-bold text-gray-900">
+          Why Study in Australia from Nepal?
+        </h1>
+      </div>
 
-      {faqs.map((faq, index) => (
-        <div key={index} className="mb-4 border border-gray-300 rounded">
-          <div
-            className="w-full text-left px-4 py-4 flex justify-between items-center cursor-pointer   font-semibold bg-gray-200 rounded"
-            onClick={() => toggleAccordion(index)}
-          >
-            {faq.question}
-            {activeIndex === index ? (
-              <FaMinus className="text-xl lg:text-2xl text-gray-600 inline ml-2" />
-            ) : (
-              <FaPlus className="text-xl lg:text-2xl text-gray-600 inline ml-2" />
-            )}
-          </div>
-          {activeIndex === index && (
-            <div className="p-4 bg-gray-100">
-              {faq.answer}
-            </div>
-          )}
+      {/* Content Section */}
+      <div className="flex flex-col lg:flex-row lg:space-x-10 items-start lg:items-center mb-10">
+        {/* Text Section */}
+        <div className="lg:w-2/3 text-gray-700">
+          <p className="text-base md:text-lg mb-6 lg:mb-0">
+            Australia offers a dynamic, vibrant education environment with advanced facilities, high-quality programs, and abundant career opportunities for international students.
+          </p>
         </div>
-      ))}
+
+        {/* Image Section */}
+        <div className="lg:w-1/3">
+          <img 
+            src="your-image-path.png" 
+            alt="Study in Australia" 
+            className="w-full h-auto rounded-lg shadow-lg"
+          />
+        </div>
+      </div>
+
+      {/* Facts About Australia */}
+      <section className="mt-12">
+        <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">Facts About Australia</h2>
+        <ul className="list-disc list-inside text-base md:text-lg text-gray-700 space-y-2">
+          <li>Australia is the third most popular destination for international students.</li>
+          <li>It has a strong economy and high standards of living.</li>
+          <li>Home to over 1,100 institutions, offering diverse courses.</li>
+        </ul>
+      </section>
+
+      {/* Reasons to Study in Australia */}
+      <section className="mt-12">
+        <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">Reasons to Study in Australia</h2>
+        <ul className="list-disc list-inside text-base md:text-lg text-gray-700 space-y-2">
+          <li>Globally recognized qualifications and world-class education.</li>
+          <li>Opportunities to work while studying.</li>
+          <li>Rich cultural diversity and welcoming international community.</li>
+          <li>Pathways to permanent residency upon meeting requirements.</li>
+        </ul>
+      </section>
+
+      {/* Student Visa Process for Australia */}
+      <section className="mt-12">
+        <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">Student Visa Process for Australia</h2>
+        <p className="text-base md:text-lg text-gray-700">
+          To study in Australia, apply for a Student Visa (Subclass 500). This process involves:
+        </p>
+        <ul className="list-disc list-inside text-base md:text-lg text-gray-700 mt-4 space-y-2">
+          <li>Confirmation of Enrollment (CoE) from an Australian institution</li>
+          <li>Proof of financial capacity and Overseas Student Health Cover (OSHC)</li>
+          <li>Meeting the Genuine Temporary Entrant (GTE) requirements</li>
+        </ul>
+      </section>
+
+      {/* Cost to Study in Australia */}
+      <section className="mt-12">
+        <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">Cost to Study in Australia</h2>
+        <p className="text-base md:text-lg text-gray-700 mb-4">
+          Below is a table providing an approximate range of annual tuition fees for international students:
+        </p>
+        <div className="overflow-x-auto">
+          <table className="w-full border text-base md:text-lg text-gray-700">
+            <thead>
+              <tr>
+                <th className="border px-4 py-2">Level of Study</th>
+                <th className="border px-4 py-2">Average Annual Tuition Fees (AUD)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td className="border px-4 py-2">Undergraduate Programs</td>
+                <td className="border px-4 py-2">AUD $20,000 - $45,000</td>
+              </tr>
+              <tr>
+                <td className="border px-4 py-2">Postgraduate Programs</td>
+                <td className="border px-4 py-2">AUD $22,000 - $50,000</td>
+              </tr>
+              <tr>
+                <td className="border px-4 py-2">Doctoral Programs</td>
+                <td className="border px-4 py-2">AUD $18,000 - $42,000</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="mt-12">
+        <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">Frequently Asked Questions</h2>
+        <div>
+          {faqs.map((faq, index) => (
+            <div key={index} className="border-b py-4">
+              <button
+                className="flex items-center justify-between w-full text-left text-base md:text-lg font-semibold text-gray-900"
+                onClick={() => toggleAccordion(index)}
+              >
+                <span>{faq.question}</span>
+                <span>{activeIndex === index ? <FaMinus /> : <FaPlus />}</span>
+              </button>
+              {activeIndex === index && (
+                <div className="mt-4 text-base md:text-lg text-gray-700">
+                  {faq.answer}
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+      </section>
     </div>
   );
 };
 
-export default FAQAccordion;
+export default StudyAustralia;
