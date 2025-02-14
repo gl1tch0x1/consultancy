@@ -86,7 +86,7 @@ const Home = () => {
               Felix assists you in selecting the best destination and university
               for your aspirations. Our experienced staff with 8 years of
               excellence will guide you through the process of studying in the
-              UK, USA, Canada, or Australia.
+              UK, New Zealand, South Korea, Eupore, USA, Canada, or Australia.
             </p>
 
             <div className="flex flex-col lg:flex-row items-center lg:items-start space-y-4 lg:space-y-0 lg:space-x-4 mt-6">

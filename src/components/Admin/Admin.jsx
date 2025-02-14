@@ -146,7 +146,7 @@ const Admin = () => {
 
       <div className="relative z-10">
         <h1 className="text-4xl font-bold mb-6 text-center text-indigo-700">
-          Admin Panel
+          Hello, Admin!
         </h1>
 
         <button
